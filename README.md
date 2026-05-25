@@ -47,7 +47,7 @@ flash-then-boom delay. Audio arms on first interaction.
 
 ## Build
 
-No build step, no toolchain. Three files:
+No build step, no toolchain. Core files:
 
 - `index.html` — markup
 - `styles.css` — dark palette and layout
@@ -55,6 +55,30 @@ No build step, no toolchain. Three files:
 
 Served as static files. Respects `prefers-reduced-motion` with a calm static
 fallback.
+
+## How it is hosted & deployed
+
+Hosted on **Cloudflare Pages** — project `nixfred-cloud` (`nixfred-cloud.pages.dev`),
+with `nixfred.cloud` and `www.nixfred.cloud` attached as custom domains. DNS and
+TLS are handled by Cloudflare.
+
+- **Automatic (live method): push to deploy.** Commit and push to `main` and it
+  deploys automatically — `.github/workflows/deploy.yml` stages a clean `dist/`
+  and runs `wrangler pages deploy dist`. Auth via encrypted repo secrets
+  (`CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`) — no token in the repo.
+- **Manual fallback** (machine with the token at `~/.config/cloudflare/env`):
+  ```sh
+  source ~/.config/cloudflare/env
+  npx --yes wrangler@latest pages deploy . --project-name nixfred-cloud --branch main
+  ```
+
+The security headers that nginx used to set are carried by the **`_headers`** file.
+
+> **Migrated 2026-05-24** off the old self-hosted setup (nginx on `red` at
+> `/var/www/nixfred.cloud/_apex`, served via the Cloudflare Tunnel on `blu`). The
+> apex no longer depends on red or blu. NOTE: the `*.nixfred.cloud` wildcard
+> (subdomain to subdir on red) was left in place and is NOT served by Pages — it
+> had no active subdomains at migration time. Decide its fate separately.
 
 ---
 

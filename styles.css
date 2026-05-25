@@ -252,6 +252,125 @@ body.revealed #hud { opacity: 0.7; }
   opacity: 0.55;
 }
 
+/* --- share button -------------------------------------------------------- */
+#share {
+  position: fixed;
+  top: 14px; right: 60px;          /* sits left of the sound toggle */
+  z-index: 7;
+  width: 36px; height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgba(77, 208, 225, 0.5);
+  background: rgba(6, 8, 13, 0.55);
+  color: var(--cyan);
+  cursor: pointer;
+  pointer-events: auto;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  transition: border-color .2s ease, color .2s ease, box-shadow .2s ease, transform .12s ease;
+  box-shadow: 0 0 14px rgba(77, 208, 225, 0.22);
+}
+#share:hover { border-color: var(--cyan); box-shadow: 0 0 20px rgba(77, 208, 225, 0.5); }
+#share:active { transform: scale(0.92); }
+#share svg { display: block; }
+
+/* --- status toast (share feedback) --------------------------------------- */
+#toast {
+  position: fixed;
+  top: 16px; left: 50%;
+  z-index: 9;
+  transform: translate(-50%, -14px);
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(77, 208, 225, 0.5);
+  background: rgba(6, 8, 13, 0.85);
+  color: var(--cyan);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 18px rgba(77, 208, 225, 0.25);
+  transition: opacity .25s ease, transform .25s ease;
+}
+#toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* --- share panel — custom, works on every browser/OS --------------------- */
+#sharepanel {
+  position: fixed;
+  top: 58px; right: 16px;
+  z-index: 8;
+  width: 236px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: linear-gradient(180deg, rgba(13, 17, 23, 0.97), rgba(6, 8, 13, 0.98));
+  border: 1px solid rgba(77, 208, 225, 0.45);
+  border-radius: 12px;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.62), 0 0 26px rgba(77, 208, 225, 0.16);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  transform-origin: top right;
+  transform: translateY(-8px) scale(0.96);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s cubic-bezier(.16, .84, .34, 1);
+}
+#sharepanel.open { opacity: 1; transform: none; pointer-events: auto; }
+
+.sp-title {
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+.sp-title span { color: var(--cyan); }
+
+.sp-qr {
+  align-self: center;
+  width: 160px; height: 160px;
+  padding: 10px;
+  background: #fff;
+  border-radius: 8px;
+}
+.sp-qr svg { display: block; width: 100%; height: 100%; }
+
+.sp-hint {
+  text-align: center;
+  font-size: 0.62rem;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+
+.sp-row { display: flex; flex-direction: column; gap: 6px; }
+
+.sp-act {
+  font: inherit;
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+  text-align: left;
+  padding: 7px 11px;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  background: rgba(230, 237, 243, 0.02);
+  color: var(--snow);
+  cursor: pointer;
+  transition: border-color .15s ease, background .15s ease, color .15s ease;
+}
+.sp-act:hover {
+  border-color: rgba(77, 208, 225, 0.6);
+  background: rgba(77, 208, 225, 0.09);
+  color: var(--cyan);
+}
+.sp-act:active { transform: scale(0.985); }
+
 /* --- noscript / reduced-motion static fallback --------------------------- */
 .noscript {
   position: fixed;
@@ -271,6 +390,7 @@ body.revealed #hud { opacity: 0.7; }
 
 @media (prefers-reduced-motion: reduce) {
   #cloud, #fx, #cursor, #term, #snd { display: none; }
+  #share { right: 16px; }          /* sound toggle is hidden — reclaim its slot */
   body { cursor: auto; background: radial-gradient(ellipse at 50% 30%, #11161f, #06080d 70%); }
   #boot { display: none; }
   #hero { opacity: 1; transform: none; transition: none; }

@@ -17,6 +17,9 @@
   var body = document.body;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* share works regardless of motion preference — wire it before any bail-out */
+  initShare();
+
   /* reduced motion / no-canvas: reveal the static hero and stop. */
   if (reduce) { body.classList.add('revealed'); return; }
 
@@ -747,6 +750,96 @@
     });
   }
 
+  /* ============================================================ SHARE
+   * A custom in-page share panel — copy link, QR code, iMessage, email, X.
+   * Built because the native Web Share API is absent on desktop Linux and
+   * is disabled in desktop Brave; a panel we draw ourselves works on every
+   * browser. iMessage uses the native sheet when the browser exposes it
+   * (Safari, iOS), and falls back to copy-link + the sms: scheme otherwise.
+   * Wired before the reduced-motion bail-out so it always works.
+   * ==================================================================== */
+  var SHARE_URL  = 'https://nixfred.cloud';
+  var SHARE_TEXT = 'a cloud that computes — and snows nix';
+  var openSharePanel = function () {};   /* set by initShare() */
+  var toastTimer = 0;
+
+  function toast(msg) {
+    var el = document.getElementById('toast');
+    if (!el) return;
+    el.textContent = msg;
+    el.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { el.classList.remove('show'); }, 2600);
+  }
+
+  function shareAction(kind) {
+    if (kind === 'copy') {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(SHARE_URL).then(
+          function () { toast('link copied'); },
+          function () { toast(SHARE_URL); });
+      } else {
+        toast(SHARE_URL);
+      }
+    } else if (kind === 'imessage') {
+      if (navigator.share) {
+        /* Safari / iOS — real OS share sheet, with Messages as a target */
+        navigator.share({ title: 'nixfred.cloud', text: SHARE_TEXT, url: SHARE_URL })
+          .catch(function () { /* dismissed — stay quiet */ });
+      } else {
+        /* Brave / others — copy the link, then open Messages to paste into */
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(SHARE_URL).catch(function () {});
+        }
+        window.location.href = 'sms:&body=' + encodeURIComponent(SHARE_URL);
+        toast('link copied — paste into Messages');
+      }
+    } else if (kind === 'email') {
+      window.location.href = 'mailto:?subject=' + encodeURIComponent('nixfred.cloud') +
+        '&body=' + encodeURIComponent(SHARE_TEXT + '\n\n' + SHARE_URL);
+    } else if (kind === 'x') {
+      window.open('https://twitter.com/intent/tweet?text=' +
+        encodeURIComponent(SHARE_TEXT) + '&url=' + encodeURIComponent(SHARE_URL),
+        '_blank', 'noopener');
+    }
+  }
+
+  function initShare() {
+    var btn   = document.getElementById('share');
+    var panel = document.getElementById('sharepanel');
+    if (!btn || !panel) return;
+
+    function setOpen(open) {
+      panel.classList.toggle('open', open);
+      panel.setAttribute('aria-hidden', open ? 'false' : 'true');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    function isOpen() { return panel.classList.contains('open'); }
+    openSharePanel = function () { setOpen(true); };
+
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      setOpen(!isOpen());
+    });
+
+    panel.addEventListener('click', function (e) {
+      e.stopPropagation();              /* clicks inside the panel keep it open */
+      var act = e.target.closest('[data-share]');
+      if (!act) return;
+      var kind = act.getAttribute('data-share');
+      shareAction(kind);
+      if (kind !== 'copy') setOpen(false);   /* copy stays open for the toast */
+    });
+
+    /* a click anywhere else, or Escape, dismisses the panel */
+    document.addEventListener('click', function () {
+      if (isOpen()) setOpen(false);
+    });
+    window.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && isOpen()) setOpen(false);
+    });
+  }
+
   /* ============================================================ TERMINAL
    * A *nix console embedded in the storm. Backtick toggles it; commands
    * drive the weather. The storm keeps running behind the panel.
@@ -780,6 +873,7 @@
          ' red              about the box',
          ' reboot           replay the cold-boot sequence',
          ' open <sub>       jump to a subdomain',
+         ' share            open the share panel (link, QR, email, X)',
          ' clear            clear the console',
          ' exit             close the console'].forEach(function (s) { print(s, 'dim'); });
       },
@@ -840,6 +934,10 @@
           var f = makeFlake(true); f.x = rand(0, W); f.vy = rand(50, 130); snow.push(f);
         }
         if (snow.length > SNOW_MAX + 200) snow.splice(0, snow.length - SNOW_MAX - 200);
+      },
+      share: function () {
+        openSharePanel();
+        print('share panel opened — link · QR · email · X', 'ok');
       },
       echo: function (a) { print(a.join(' ')); },
       sudo: function () { print('nice try. you are already root of the storm.', 'red'); },
@@ -1002,7 +1100,9 @@
     input.down = true;
     startAudio();
     onMove(e.clientX, e.clientY);
-    if (termOpen || (e.target && e.target.id === 'snd')) return;  /* console / UI */
+    /* clicks on the floating UI should not also throw lightning */
+    if (termOpen || (e.target && e.target.closest &&
+        e.target.closest('#snd, #share, #sharepanel'))) return;
     var hit = hubHit(e.clientX, e.clientY);
     if (hit) { window.location.href = 'https://' + hit.name + '.nixfred.cloud'; return; }
     /* charged (fine pointer) or any tap (coarse) discharges lightning */
