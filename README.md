@@ -1,85 +1,227 @@
+<p align="center">
+  <img src="og-preview.jpg" alt="nixfred.cloud wordmark floating inside a dark computational storm with falling nix glyphs and an orbital hub" width="100%">
+</p>
+
+<p align="center">
+  <strong>A cloud that computes, and snows nix.</strong><br>
+  Move the wind. Call the lightning. Operate the storm from a built-in terminal.
+</p>
+
+<p align="center">
+  <a href="https://nixfred.cloud"><strong>Enter the storm</strong></a>
+  ·
+  <a href="#the-console">Open the operator manual</a>
+</p>
+
 # nixfred.cloud
 
-A storm you can operate — the landing page for **[nixfred.cloud](https://nixfred.cloud)**.
-A single-page WebGL experience: a volumetric storm cloud that snows `/nix/store`
-glyphs, throws lightning, rolls synthesized thunder, and answers to a built-in
-`*nix` console.
+`nixfred.cloud` is a single-page browser instrument built around a three-way
+name: cloud infrastructure, a literal storm cloud, and *nix that falls as snow.
+It boots like a machine, reacts like weather, and exposes its controls through
+an embedded command line.
 
-![nixfred.cloud](preview.png)
+<p align="center">
+  <img src="preview.png" alt="The full nixfred.cloud browser experience during a lightning strike, with turbulent cloud shader, falling glyphs, and constellation hub" width="88%">
+</p>
 
-## The idea
+The entire experience is hand-rolled in HTML, CSS, and JavaScript with **zero
+runtime dependencies** and no build step.
 
-`nixfred.cloud` decodes three ways at once — a *cloud*, *nix* (snow, and `*nix`),
-and a thing that *computes*. The page leans into all three: it boots like a
-machine, it is a literal cloud, and it snows nix.
+## Four layers, one engine
 
-Four layers, one engine, hand-rolled with **zero dependencies**:
+The visual stack is deliberately separated by responsibility. WebGL renders
+the volumetric field; a transparent 2D canvas carries the sharp effects and
+interface-adjacent particles; the cold boot owns the opening beat; and semantic
+HTML remains available above the weather.
 
-- **Storm cloud** — a WebGL fragment shader: domain-warped fbm noise. The cursor
-  is wind — move it to part the fog, swipe to tear a gust.
-- **Snow** — a particle system of falling monospace nix-glyphs that accumulate
-  into a drift at the base. The cursor brightens and drags nearby flakes.
-- **Constellation hub** — subdomains orbit a glowing core node; the mesh leans
-  toward the cursor like a gravity well.
-- **Cold boot** — a one-time `*nix` cold-open (kernel log + ASCII cloud),
-  gated on `localStorage`.
+```mermaid
+flowchart TB
+    I[Pointer, touch<br/>& device tilt] --> W[Layer A<br/>WebGL storm]
+    I --> F[Layers B + C<br/>2D effects canvas]
+    B[Layer D<br/>cold boot] --> S[Storm sequence<br/>ignite · snow · hub · steady]
+    S --> W
+    S --> F
+    W --> V[Composited<br/>weather system]
+    F --> V
+    H[HTML controls<br/>& console] --> V
+
+    classDef input fill:#17131a,stroke:#9b8793,color:#f2eaf0
+    classDef storm fill:#231419,stroke:#f85149,color:#fff0ef
+    classDef system fill:#0c2024,stroke:#36d6e7,color:#edfdff
+    class I,B input
+    class W,F,S storm
+    class H,V system
+```
+
+### Storm cloud
+
+The background is a WebGL fragment shader built from domain-warped fractional
+Brownian motion. Pointer movement becomes wind: move to part the fog, swipe to
+tear a gust, or hold and release to discharge lightning.
+
+### Snow, lightning, and drift
+
+The foreground canvas emits falling monospace nix glyphs, lets nearby flakes
+respond to the cursor, and accumulates them into a drift. Lightning adds a
+temporary precipitation burst and hands its strike identity to the audio
+system.
+
+### Constellation hub
+
+Subdomains can orbit a glowing core as they come online. The whole mesh leans
+toward input like a small gravity well; an empty fleet becomes the intentional
+“awaiting nodes” state rather than an error.
+
+### Cold boot
+
+A one-time kernel-log and ASCII-cloud sequence introduces the system, then
+stores its completion in `localStorage`. `reboot` clears that marker and plays
+the sequence again.
+
+## Input becomes weather
+
+```mermaid
+flowchart LR
+    P[Pointer<br/>position] --> G[Wind +<br/>gravity]
+    D[Hold / click] --> L[Lightning<br/>strike]
+    T[Touch / tilt] --> G
+    C[Console<br/>command] --> M[Storm mode<br/>& overrides]
+    G --> R[Render loop]
+    L --> R
+    M --> R
+    R --> S[Shader cloud]
+    R --> N[Glyph snow<br/>& drift]
+    R --> H[Orbit hub]
+    L --> A[Synthesized<br/>thunder]
+
+    classDef input fill:#17131a,stroke:#9b8793,color:#f2eaf0
+    classDef state fill:#231419,stroke:#f85149,color:#fff0ef
+    classDef output fill:#0c2024,stroke:#36d6e7,color:#edfdff
+    class P,D,T,C input
+    class G,L,M,R state
+    class S,N,H,A output
+```
+
+Audio arms only after the first interaction. Reduced-motion visitors bypass the
+boot animation and receive a calm, static fallback; the page also contains a
+`noscript` experience.
 
 ## The console
 
-Press `` ` `` (backtick), or click the hint, to open an embedded terminal.
-Commands drive the weather:
+Press <kbd>`</kbd> or click the console hint. Commands mutate the same live state
+used by the pointer-driven storm:
 
-| command | effect |
+| Command | Effect |
 |---|---|
-| `storm rage \| calm \| auto` | drive the storm's energy |
-| `lightning [1-7]` | call down bolts — `1`-`7` picks one of 7 thunder voices |
-| `snow on \| off \| auto` | force precipitation |
-| `mute` / `unmute` | storm audio |
-| `ls`, `open <sub>` | the subdomain hub |
-| `whoami`, `red`, `reboot`, `help` | identity, box, replay boot, command list |
+| `storm rage \| calm \| auto` | Set the storm's energy policy |
+| `lightning [1-7]` | Call a bolt; `1`–`7` selects a thunder voice |
+| `snow on \| off \| auto` | Override or release precipitation |
+| `mute` / `unmute` | Control synthesized storm audio |
+| `ls`, `open <sub>` | Inspect and navigate the subdomain hub |
+| `whoami`, `red`, `reboot`, `help` | Identity, machine lore, boot replay, and command reference |
 
-## Audio
+```mermaid
+flowchart LR
+    K[Backtick or<br/>console hint] --> T[Terminal<br/>opens]
+    T --> P[Parse command<br/>+ aliases]
+    P --> W[Weather<br/>state]
+    P --> N[Navigation<br/>actions]
+    P --> B[Boot<br/>control]
+    W --> O[Console<br/>response]
+    N --> O
+    B --> O
 
-Thunder is fully synthesized — Web Audio, **no sample files**. Seven distinct
-strike voices (close crack, distant roll, the boomer, sizzle, rolling thunder,
-double-crack, deep grumble), each synced to its lightning flash with a realistic
-flash-then-boom delay. Audio arms on first interaction.
+    classDef console fill:#0c2024,stroke:#36d6e7,color:#edfdff
+    classDef action fill:#231419,stroke:#f85149,color:#fff0ef
+    class K,T,P,O console
+    class W,N,B action
+```
 
-## Build
+The console is not decorative command-line copy. `storm`, `lightning`, `snow`,
+and sound commands drive the running engine directly.
 
-No build step, no toolchain. Core files:
+## Thunder without samples
 
-- `index.html` — markup
-- `styles.css` — dark palette and layout
-- `storm.js` — the whole engine (storm, snow, hub, boot, console, audio)
+Every sound is synthesized with the Web Audio API. Seven strike voices combine
+different envelopes and noise treatments for a close crack, distant roll,
+boomer, sizzle, rolling thunder, double crack, and deep grumble. Each flash is
+paired with a delayed boom so distance still reads in an invented storm.
 
-Served as static files. Respects `prefers-reduced-motion` with a calm static
-fallback.
+```mermaid
+flowchart LR
+    L[Lightning<br/>event] --> I[Voice index<br/>1–7]
+    I --> F[Immediate<br/>flash]
+    I --> D[Distance-aware<br/>delay]
+    D --> C[Crack / roll /<br/>rumble synthesis]
+    C --> M[Web Audio<br/>mix]
+    U[First user<br/>interaction] --> A[AudioContext<br/>armed]
+    A --> M
 
-## How it is hosted & deployed
+    classDef event fill:#231419,stroke:#f85149,color:#fff0ef
+    classDef audio fill:#17131a,stroke:#9b8793,color:#f2eaf0
+    classDef output fill:#0c2024,stroke:#36d6e7,color:#edfdff
+    class L,I,F event
+    class D,C,U,A audio
+    class M output
+```
 
-Hosted on **Cloudflare Pages** — project `nixfred-cloud` (`nixfred-cloud.pages.dev`),
-with `nixfred.cloud` and `www.nixfred.cloud` attached as custom domains. DNS and
-TLS are handled by Cloudflare.
+No audio files ship with the site.
 
-- **Automatic (live method): push to deploy.** Commit and push to `main` and it
-  deploys automatically — `.github/workflows/deploy.yml` stages a clean `dist/`
-  and runs `wrangler pages deploy dist`. Auth via encrypted repo secrets
-  (`CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`) — no token in the repo.
-- **Manual fallback** (machine with the token at `~/.config/cloudflare/env`):
-  ```sh
-  source ~/.config/cloudflare/env
-  npx --yes wrangler@latest pages deploy . --project-name nixfred-cloud --branch main
-  ```
+## Repository anatomy
 
-The security headers that nginx used to set are carried by the **`_headers`** file.
+```mermaid
+flowchart TD
+    H[index.html<br/>semantic shell] --> P[Static page]
+    C[styles.css<br/>layout + fallbacks] --> P
+    J[storm.js<br/>complete engine] --> P
+    O[og-preview.jpg<br/>social card] --> P
+    R[_headers<br/>security policy] --> P
+    G[Push to main] --> A[GitHub Actions]
+    A --> D[Clean dist/<br/>staging]
+    P --> D
+    D --> F[Cloudflare Pages<br/>nixfred-cloud]
+    F --> L[nixfred.cloud<br/>+ www]
 
-> **Migrated 2026-05-24** off the old self-hosted setup (nginx on `red` at
-> `/var/www/nixfred.cloud/_apex`, served via the Cloudflare Tunnel on `blu`). The
-> apex no longer depends on red or blu. NOTE: the `*.nixfred.cloud` wildcard
-> (subdomain to subdir on red) was left in place and is NOT served by Pages — it
-> had no active subdomains at migration time. Decide its fate separately.
+    classDef source fill:#17131a,stroke:#9b8793,color:#f2eaf0
+    classDef deploy fill:#0c2024,stroke:#36d6e7,color:#edfdff
+    class H,C,J,O,R,G source
+    class P,A,D,F,L deploy
+```
 
----
+Core files:
 
-© Fred Nix.
+- `index.html` contains metadata, accessible controls, boot/console markup, and fallbacks.
+- `styles.css` defines the dark weather system, overlays, and reduced-motion behavior.
+- `storm.js` contains the shader, particles, lightning, hub, boot, console, sharing, and audio.
+- `_headers` carries the security headers used by the previous nginx deployment.
+
+## Run locally
+
+Serve the repository root with any static server:
+
+```bash
+python3 -m http.server 8000
+```
+
+Then open <http://localhost:8000>.
+
+## Deployment
+
+Pushes to `main` stage a clean `dist/` and deploy it to the `nixfred-cloud`
+Cloudflare Pages project. The `nixfred.cloud` and `www.nixfred.cloud` custom
+domains terminate DNS and TLS at Cloudflare; credentials remain in encrypted
+repository secrets.
+
+Manual fallback:
+
+```bash
+npx --yes wrangler@latest pages deploy . \
+  --project-name nixfred-cloud \
+  --branch main
+```
+
+The apex migrated from the former `red`/`blu` tunnel path on 2026-05-24. The
+separate `*.nixfred.cloud` wildcard was not moved into Pages and remains outside
+this repository's deployment scope.
+
+© Fred Nix
