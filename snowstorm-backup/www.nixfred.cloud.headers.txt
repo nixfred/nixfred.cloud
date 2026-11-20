@@ -1,0 +1,7 @@
+HTTP/2 301 
+date: Fri, 20 Nov 2026 06:01:39 GMT
+location: https://nixfred.cloud/
+server: Caddy
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+x-trace-id: 013303025649537f82b1ee03d678a09d
+

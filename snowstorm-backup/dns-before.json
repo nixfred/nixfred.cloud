@@ -1,0 +1,10 @@
+{
+  "captured_at": "2026-11-20T01:05-05:00 (America/New_York)",
+  "zone": {"id": "609f174c9a5f65d6de100d9578069b75", "name": "nixfred.cloud", "status": "active", "name_servers": ["leonard.ns.cloudflare.com", "suzanne.ns.cloudflare.com"], "plan": "Free Website"},
+  "records": [
+    {"id": "08f5ee6b249340f9cf1856e7a4121c26", "type": "CNAME", "name": "nixfred.cloud", "content": "webhost.exe.xyz", "proxied": false, "ttl": 1, "comment": "exe.dev cutover chunks 2-3, per Fred 2026-10-26", "modified_on": "2026-10-27T03:44:12.855397Z"},
+    {"id": "952194ef92f1300729b272961a36f66d", "type": "CNAME", "name": "townhop-yt.nixfred.cloud", "content": "webhost.exe.xyz", "proxied": false, "ttl": 1, "comment": "exe.dev cutover chunks 2-3, per Fred 2026-10-26", "modified_on": "2026-10-27T03:41:20.258732Z"},
+    {"id": "7cdd69c67ac46d4169eb74171189820f", "type": "CNAME", "name": "www.nixfred.cloud", "content": "webhost.exe.xyz", "proxied": false, "ttl": 1, "comment": "exe.dev cutover chunks 2-3, per Fred 2026-10-26", "modified_on": "2026-10-27T03:44:13.017758Z"}
+  ],
+  "pages_project": {"name": "nixfred-cloud", "id": "d6b9b760-3f14-4024-99a0-81368ac7bb2e", "custom_domains": [], "source": "direct upload via GitHub Actions (wrangler)", "last_prod_deploy": "acb81f87 (commit 548ba92, snowstorm)"}
+}

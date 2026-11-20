@@ -1,0 +1,18 @@
+HTTP/2 200 
+accept-ranges: bytes
+cache-control: public, max-age=300, must-revalidate
+content-security-policy: default-src 'self'; style-src 'self'; script-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'self'; base-uri 'self'; form-action 'self'
+content-type: text/html; charset=utf-8
+date: Fri, 20 Nov 2026 06:01:39 GMT
+etag: "dim6igxqfeo0-7ik"
+last-modified: Mon, 18 May 2026 23:08:15 GMT
+permissions-policy: interest-cohort=(), browsing-topics=()
+referrer-policy: strict-origin-when-cross-origin
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+strict-transport-security: max-age=31536000; includeSubDomains
+vary: Accept-Encoding
+x-content-type-options: nosniff
+x-frame-options: SAMEORIGIN
+x-trace-id: 8e3bcf7cd5f84d12e4253864b122d938
+content-length: 9740
+
