@@ -1,0 +1,17 @@
+# NixNet
+
+> NixNet is Fred Nix's private GPU lab for a small circle of friends: browser chat and an OpenAI-compatible API over Tailscale, paired with shared NAS storage and short-lived agent sandboxes on the same homelab. Not a product launch. A working homelab with a name, built so friends can think and build without renting someone else's GPU.
+
+This site is a single public story page. The real service stays on the tailnet: there is no public signup, no public API and no public endpoint here.
+
+## Page
+
+- [NixNet story](https://nixfred.cloud/): the whole story on one page.
+
+## Sections
+
+- [The GPU box and what friends get](https://nixfred.cloud/#gpu): hex, a Minisforum MS-S1 MAX (AMD Ryzen AI MAX+ 395, 128 GB unified memory, Radeon 8060S iGPU, integrated NPU) running browser chat, local inference via Ollama, image and media generation, and personal OpenAI-compatible API keys for invited friends.
+- [The nas](https://nixfred.cloud/#nas): a dedicated nas guest on hex whose ZFS pool tank holds shared Projects, Sessions, and scratch space over NFS (and SMB).
+- [Agent sandboxes](https://nixfred.cloud/#sandboxes): a HyperNix control plane and the hex.sessions spawn broker run short-lived linux containers for agent work; nix evaluation proves every proposed NixOS config before Fred approves it.
+- [How it fits together](https://nixfred.cloud/#fit): friends reach NixNet over a private Tailscale mesh with zero open public ports; a self-hosted Infisical secrets vault keeps keys out of chat.
+- [What's next](https://nixfred.cloud/#next)
