@@ -37,7 +37,7 @@ flowchart LR
 | `public/brand/` | The locked nixfred hexagon files, copied unmodified. |
 | `public/llms.txt` | Plain-text summary for agents. No fake endpoints. |
 | `tools/diagram.py` | Generates the inline SVG flowchart (wide and mobile layouts). |
-| `.github/workflows/deploy.yml` | Push to `main` deploys `public/` to the Cloudflare Pages project `nixfred-cloud`. |
+| Cloudflare Pages | Project `nixfred-cloud` is Git-connected: push to `main` deploys `public/` (no build step). |
 
 The old snowstorm landing page lives on the [`snowstorm-archive`](../../tree/snowstorm-archive) branch and at [storm.nixfred.com](https://storm.nixfred.com/).
 
