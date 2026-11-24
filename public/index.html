@@ -87,8 +87,8 @@
     <h3>What friends get once invited:</h3>
     <ul class="cards">
       <li><h4>Browser chat</h4><p>Browser chat with presets (<code>chat</code>, <code>code</code>, <code>see</code>, <code>facts</code>, <code>glm-4.7-flash</code>, <code>NixNet AI</code>) and personas (<code>researcher</code>, <code>artist</code>, <code>coder</code>, <code>vision</code>, <code>nixnet-help</code>).</p></li>
-      <li><h4>Local inference</h4><p>Local inference via Ollama (0.40.16), keeping up to two models resident at a time across reasoning, coding, vision, and fast helper models (such as <code>gpt-oss:120b</code>, <code>qwen3-coder:30b</code>, <code>qwen3.6:35b</code>, <code>gemma4</code>, <code>qwen3-vl</code>, and more).</p></li>
-      <li><h4>Images, media, search</h4><p>Image and media generation (ComfyUI with FLUX.1 schnell, LTX-Video, ACE-Step 1.5, plus MOSS-Image) and web search from the Integrations menu.</p></li>
+      <li><h4>Local inference</h4><p>Local inference via Ollama (0.40.16), keeping one model resident at a time across reasoning, coding, vision, and fast helper models (such as <code>gpt-oss:120b</code>, <code>qwen3-coder:30b</code>, <code>qwen3.6:35b</code>, <code>gemma4</code>, <code>qwen3-vl</code>, and more).</p></li>
+      <li><h4>Images, media, search</h4><p>Image and media generation (ComfyUI 0.43.0 with FLUX.1 schnell, LTX-Video, ACE-Step 1.5, plus MOSS-Image) and web search from the Integrations menu.</p></li>
       <li><h4>Your own API key</h4><p>A personal API key and OpenAI-compatible base URL, plus a live status line and light usage leaderboard on the friends welcome page.</p></li>
     </ul>
     <p class="callout mono"><span>!</span> Access stays strictly on the tailnet. There is no public signup, and the friends welcome site stays tailnet-only.</p>
@@ -112,7 +112,7 @@
   <section class="panel reveal" id="sandboxes" aria-labelledby="sb-h">
     <p class="num mono">03</p>
     <h2 id="sb-h">Agent sandboxes <small>HyperNix and short-lived linux containers</small></h2>
-    <p>On hex, a HyperNix control plane runs with isolated guest networking, alongside a live spawn broker (<code>hex.sessions</code>) that spins up short-lived linux containers for agent work from prebuilt templates and reaps them automatically when a task finishes or its TTL expires. HyperNix's rule is simple: local models only propose NixOS configs, <code>nix</code> evaluation proves every proposal before Fred approves it, and agent sessions stay sandboxed away from the friends chat stack.</p>
+    <p>On hex, a HyperNix control plane runs with isolated guest networking, alongside a spawn broker (<code>hex.sessions</code>) that spins up short-lived linux containers for agent work from prebuilt templates and reaps them automatically when a task finishes or its TTL expires. HyperNix's rule is simple: local models only propose NixOS configs, <code>nix</code> evaluation proves every proposal before Fred approves it, and agent sessions stay sandboxed away from the friends chat stack.</p>
     <ol class="steps mono" aria-label="The HyperNix rule">
       <li><b>propose</b><span>local models only propose NixOS configs</span></li>
       <li><b>prove</b><span><code>nix</code> evaluation proves every proposal</span></li>
