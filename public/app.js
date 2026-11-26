@@ -7,7 +7,7 @@
     d.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
   }
   // nav highlight
-  var links=[].slice.call(d.querySelectorAll('.top nav a'));
+  var links=[].slice.call(d.querySelectorAll('.top nav a')).filter(function(a){return (a.getAttribute('href')||'').charAt(0)==='#';});
   if('IntersectionObserver' in window&&links.length){
     var nio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id);});}});},{rootMargin:'-45% 0px -50% 0px'});
     links.forEach(function(a){var s=d.querySelector(a.getAttribute('href'));if(s)nio.observe(s);});

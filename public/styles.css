@@ -140,3 +140,27 @@ p{margin:0 0 14px}
 #work .steps{margin-top:22px}
 @media (max-width:900px){.cards.svc{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:720px){.cards.svc{grid-template-columns:1fr}}
+/* offer page */
+.offer-hero{min-height:auto;padding:56px 0 48px}
+.offer-h1{font-size:clamp(44px,8vw,96px)}
+.offer-h1 .h1-rest{display:block;margin-top:14px;font-size:clamp(26px,3.6vw,44px);letter-spacing:-.02em;line-height:1.15;color:var(--ink)}
+.fitgrid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.fitcol h3{margin-top:0;text-transform:uppercase;letter-spacing:.12em;font-size:14px}
+.fitcol.no h3{color:var(--pink)}
+.checks{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.checks li{position:relative;padding:12px 14px 12px 44px;border:1px solid var(--line);border-radius:10px;background:rgba(0,0,0,.35);color:var(--dim);font-size:15.5px}
+.checks li b{color:#fff}
+.checks li::before{content:"[x]";position:absolute;left:12px;top:12px;font:600 13px var(--mono);color:var(--mint)}
+.checks.x li::before{content:"[ ]";color:var(--pink)}
+.checks.big{grid-template-columns:1fr 1fr}
+.tbd{display:inline-block;font:600 12.5px var(--mono);color:#ffd166;background:rgba(255,209,102,.1);border:1px dashed rgba(255,209,102,.55);border-radius:6px;padding:1px 7px}
+.cards.pricing{grid-template-columns:repeat(3,1fr)}
+.cards.pricing .feat{border-color:rgba(127,249,188,.55);box-shadow:0 0 0 1px rgba(127,249,188,.2),0 18px 50px -24px rgba(127,249,188,.5)}
+.cards .amt{margin:4px 0 10px;font-size:26px;font-weight:600;color:var(--mint)}
+.cards .amt span{font-size:13px;color:var(--dim);font-weight:400}
+.repeat{margin:28px 0 0;padding:20px 22px;border:1px solid rgba(167,123,255,.4);border-radius:12px;background:rgba(167,123,255,.07)}
+.repeat .mono{margin:0 0 6px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--violet)}
+.repeat .say{margin:0;font-size:clamp(18px,2.2vw,23px);font-weight:600;color:#fff}
+#timeline .steps{margin-top:8px}
+@media (max-width:900px){.cards.pricing{grid-template-columns:repeat(2,1fr)}.checks.big{grid-template-columns:1fr}}
+@media (max-width:720px){.fitgrid,.cards.pricing{grid-template-columns:1fr}}
