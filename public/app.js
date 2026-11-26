@@ -14,7 +14,7 @@
   }
   // hero terminal: cycles through phrases taken from the page itself
   var el=d.getElementById('typed'); if(!el||reduce)return;
-  var lines=['hex: 128GB GPU box','chat and API over Tailscale','tank: shared over NFS','hex.sessions: spawn, work, reap','nix eval: proposal proven','zero open public ports'];
+  var lines=['hex: 128GB AI box','private chat, API and MCP','auto: right model, every message','sandboxes: walls tested nightly','pbs: nightly, four copies','zero open public ports'];
   var li=0,ci=0,del=false;
   function tick(){
     var s=lines[li];

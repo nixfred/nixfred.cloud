@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <img src="docs/banner.png" alt="NixNet: Fred Nix's private GPU lab for friends" width="100%">
+  <img src="docs/banner.png" alt="NixNet: private AI infrastructure by Fred Nix" width="100%">
 </p>
 
 <p align="center">
@@ -14,18 +14,19 @@
 
 # nixfred.cloud
 
-The public story page for **NixNet**, Fred Nix's private GPU lab for a small circle of friends: browser chat and an OpenAI-compatible API over Tailscale, shared nas storage, and short-lived agent sandboxes on one 128GB homelab box. The real service stays on the tailnet; this page just tells the story.
+The public showcase for **NixNet**, Fred Nix's live reference build of private AI infrastructure: multi-user chat, an OpenAI-compatible API and MCP server, image, voice and video generation, offline agent sandboxes, ZFS storage and nightly backups on one 128GB box, reached only over Tailscale. It pitches the same build as a service. NixNet itself stays private; this page is the tour. CTA: [book a call](https://calendly.com/nixfred) or [asknix.io](https://asknix.io/).
 
 ```mermaid
 flowchart LR
-  friends[Friends] --> mesh[Tailscale mesh]
-  mesh --> nixnet[NixNet chat and API]
-  nixnet --> hex[hex: 128GB GPU box]
-  hex --> nas[nas / tank over NFS]
-  hex --> hypernix[HyperNix control plane]
+  people[Your people and their agents] --> mesh[Tailscale mesh, zero public ports]
+  mesh --> nixnet[Chat, API and MCP]
+  nixnet --> hex[hex: 128GB AI box]
+  hex --> nas[nas / tank, ZFS over NFS]
+  hex --> sandboxes[Sandboxes, tested nightly]
   hex --> sessions[hex.sessions spawn broker]
+  hex --> backups[PBS backups, nightly, offsite]
   mesh --> vault[Infisical secrets vault]
-  hypernix --> agents[Short-lived linux agent LXCs]
+  sandboxes --> agents[Short-lived linux agent containers]
   sessions --> agents
 ```
 

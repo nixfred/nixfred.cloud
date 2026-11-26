@@ -122,3 +122,21 @@ p{margin:0 0 14px}
 @media (max-width:420px){.steps{grid-template-columns:1fr}code{white-space:normal}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.js .reveal{opacity:1;transform:none}.flow .pulse-line{display:none}.glitch::before,.glitch::after{display:none}}
 .hero.solo{grid-template-columns:1fr;min-height:80vh}
+/* commercial additions */
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 26px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:10px;border:1px solid rgba(54,226,240,.45);color:var(--ink);text-decoration:none;font:600 15px var(--sans);background:rgba(0,0,0,.45);transition:transform .2s,box-shadow .2s,border-color .2s}
+.btn:hover{transform:translateY(-2px);border-color:var(--cyan);box-shadow:0 10px 30px -12px rgba(54,226,240,.5)}
+.btn.primary{background:linear-gradient(100deg,var(--mint),var(--cyan));color:#041010;border-color:transparent}
+.btn.primary:hover{box-shadow:0 10px 34px -10px rgba(127,249,188,.6)}
+.top nav a.nav-cta{color:#041010;background:var(--mint);border-color:var(--mint)}
+.top nav a.nav-cta:hover,.top nav a.nav-cta.on{color:#041010;background:var(--cyan);border-color:var(--cyan)}
+.cards.svc{grid-template-columns:repeat(3,1fr)}
+.cards .proof{margin-top:12px;font-size:12px;color:var(--mint);letter-spacing:.02em}
+.cards .proof::before{content:"\25CF  ";color:var(--mint)}
+.panel > .cards{margin-top:20px}
+.panel h3 + .cards{margin-top:0}
+.note{margin:18px 0 0;color:var(--dim);font-size:15.5px}
+.foot a{color:var(--cyan)}
+#work .steps{margin-top:22px}
+@media (max-width:900px){.cards.svc{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:720px){.cards.svc{grid-template-columns:1fr}}

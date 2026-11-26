@@ -1,17 +1,20 @@
-# NixNet
+# NixNet by Fred Nix
 
-> NixNet is Fred Nix's private GPU lab for a small circle of friends: browser chat and an OpenAI-compatible API over Tailscale, paired with shared NAS storage and short-lived agent sandboxes on the same homelab. Not a product launch. A working homelab with a name, built so friends can think and build without renting someone else's GPU.
+> Private AI infrastructure on hardware you own. NixNet is Fred Nix's live reference build: multi-user chat, an OpenAI-compatible API, an MCP server, image, voice and video generation, offline agent sandboxes and nightly backups on one 128GB box, reached only over Tailscale with zero open public ports. Fred designs and runs it himself and builds the same for clients.
 
-This site is a single public story page. The real service stays on the tailnet: there is no public signup, no public API and no public endpoint here.
+This site is a single public showcase page. NixNet itself stays private: there is no public signup, no public API and no public endpoint here. To talk about a build, book a call.
 
-## Page
+## Contact
 
-- [NixNet story](https://nixfred.cloud/): the whole story on one page.
+- [Book a call](https://calendly.com/nixfred): Fred's calendar.
+- [asknix.io](https://asknix.io/): NixNet AI Consulting Services by Fred Nix, with engagement options.
 
 ## Sections
 
-- [The GPU box and what friends get](https://nixfred.cloud/#gpu): hex, a Minisforum MS-S1 MAX (AMD Ryzen AI MAX+ 395, 128 GB unified memory, Radeon 8060S iGPU, integrated NPU) running browser chat, local inference via Ollama, image and media generation, and personal OpenAI-compatible API keys for invited friends.
-- [The nas](https://nixfred.cloud/#nas): a dedicated nas guest on hex whose ZFS pool tank holds shared Projects, Sessions, and scratch space over NFS (and SMB).
-- [Agent sandboxes](https://nixfred.cloud/#sandboxes): a HyperNix control plane and the hex.sessions spawn broker run short-lived linux containers for agent work; nix evaluation proves every proposed NixOS config before Fred approves it.
-- [How it fits together](https://nixfred.cloud/#fit): friends reach NixNet over a private Tailscale mesh with zero open public ports; a self-hosted Infisical secrets vault keeps keys out of chat.
-- [What's next](https://nixfred.cloud/#next)
+- [What Fred builds](https://nixfred.cloud/#services): private AI servers, local LLM and GPU setup, agent sandboxes and automation, secure private access over Tailscale, Proxmox builds and ZFS storage, backups and safe upgrades.
+- [The reference box](https://nixfred.cloud/#hex): hex, a Minisforum MS-S1 MAX on Proxmox VE (AMD Ryzen AI MAX+ 395, 128 GB unified memory, Radeon 8060S iGPU with up to 80 GiB addressable, integrated NPU).
+- [A private AI workspace](https://nixfred.cloud/#workspace): Open WebUI 0.13.5 with an auto model router, chat with documents and citations, voice chat, image (FLUX.1 schnell, MOSS-Image via ComfyUI 0.43.0), video (LTX-Video) and music (ACE-Step 1.5) generation, web search with sources, a Python code interpreter, and a remote computer in chat limited to the owner's account.
+- [Built for developers and agents](https://nixfred.cloud/#agents): OpenAI-compatible API, revocable per-agent keys, an MCP server with 19 tools, offline linux sandboxes with a nightly isolation test, the hex.sessions spawn broker, and the Lab (fit, speed and cost planning, Hugging Face model finder, side-by-side playground, live status pages).
+- [Storage, backups and operations](https://nixfred.cloud/#ops): ZFS pool tank over NFS and SMB, Proxmox Backup Server nightly with four copies including one offsite, snapshot-first upgrades, change logs, a self-hosted Infisical secrets vault, and lab VMs from templates.
+- [How it fits together](https://nixfred.cloud/#fit)
+- [Get one built for you](https://nixfred.cloud/#work)

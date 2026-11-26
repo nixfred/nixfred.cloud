@@ -3,27 +3,27 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NixNet: Fred Nix's private GPU lab for friends</title>
-<meta name="description" content="NixNet is Fred Nix's private GPU lab for a small circle of friends: browser chat and an OpenAI-compatible API over Tailscale, paired with shared NAS storage and short-lived agent sandboxes on the same homelab.">
+<title>NixNet by Fred Nix: private AI infrastructure, built and run in-house</title>
+<meta name="description" content="Private AI on hardware you own. NixNet is Fred Nix's live reference build: multi-user chat, an OpenAI-compatible API, MCP, image, voice and video generation, offline agent sandboxes and nightly backups on one 128GB box, reached only over Tailscale. Fred designs and runs it, and builds the same for clients.">
 <meta name="author" content="Fred Nix">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#070707">
 <link rel="canonical" href="https://nixfred.cloud/">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="NixNet">
+<meta property="og:site_name" content="NixNet by Fred Nix">
 <meta property="og:url" content="https://nixfred.cloud/">
-<meta property="og:title" content="NixNet: Fred Nix's private GPU lab for friends">
-<meta property="og:description" content="Browser chat and an OpenAI-compatible API over Tailscale, shared NAS storage, and short-lived agent sandboxes, all on one 128GB homelab box.">
-<meta property="og:image" content="https://nixfred.cloud/og.png?v=6ec2baa6">
+<meta property="og:title" content="NixNet by Fred Nix: private AI infrastructure, built and run in-house">
+<meta property="og:description" content="Private chat, an OpenAI-compatible API, MCP, agent sandboxes and nightly backups on one 128GB box. A live reference build by Fred Nix. Book a call.">
+<meta property="og:image" content="https://nixfred.cloud/og.png?v=006b7480">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="NixNet: Fred Nix's private GPU lab for friends, with the nixfred hexagon">
+<meta property="og:image:alt" content="NixNet: private AI infrastructure by Fred Nix, with the nixfred hexagon">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@nixfred">
 <meta name="twitter:creator" content="@nixfred">
-<meta name="twitter:title" content="NixNet: Fred Nix's private GPU lab for friends">
-<meta name="twitter:description" content="Browser chat and an OpenAI-compatible API over Tailscale, shared NAS storage, and short-lived agent sandboxes, all on one 128GB homelab box.">
-<meta name="twitter:image" content="https://nixfred.cloud/og.png?v=6ec2baa6">
+<meta name="twitter:title" content="NixNet by Fred Nix: private AI infrastructure, built and run in-house">
+<meta name="twitter:description" content="Private chat, an OpenAI-compatible API, MCP, agent sandboxes and nightly backups on one 128GB box. A live reference build by Fred Nix. Book a call.">
+<meta name="twitter:image" content="https://nixfred.cloud/og.png?v=006b7480">
 <link rel="icon" href="/brand/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/brand/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/brand/favicon-16.png">
@@ -33,10 +33,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap">
-<link rel="stylesheet" href="/styles.css?v=9e76221f">
-<script src="/app.js?v=c899c6de" defer></script>
+<link rel="stylesheet" href="/styles.css?v=40f4e5d7">
+<script src="/app.js?v=db1c5b51" defer></script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","name":"NixNet: Fred Nix's private GPU lab for friends","url":"https://nixfred.cloud/","description":"NixNet is Fred Nix's private GPU lab for a small circle of friends: browser chat and an OpenAI-compatible API over Tailscale, paired with shared NAS storage and short-lived agent sandboxes on the same homelab.","author":{"@type":"Person","name":"Fred Nix","url":"https://nixfred.com/"}}
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"NixNet by Fred Nix","url":"https://nixfred.cloud/","description":"Private AI on hardware you own. NixNet is Fred Nix's live reference build: multi-user chat, an OpenAI-compatible API, MCP, image, voice and video generation, offline agent sandboxes and nightly backups on one 128GB box, reached only over Tailscale. Fred designs and runs it, and builds the same for clients.","founder":{"@type":"Person","name":"Fred Nix","url":"https://nixfred.com/"},"serviceType":["Private AI infrastructure","Local LLM and GPU setup","Proxmox homelab builds","Secure private network access","AI agent sandboxes","Backup and recovery"],"sameAs":["https://asknix.io/"]}
 </script>
 </head>
 <body>
@@ -46,18 +46,22 @@
 <header class="top">
   <a class="brand" href="/" aria-label="nixfred home"><img src="/brand/nixfred-logo.svg" alt="nixfred" width="148" height="57"></a>
   <nav aria-label="Sections">
-    <a href="#gpu">GPU box</a><a href="#nas">nas</a><a href="#sandboxes">Sandboxes</a><a href="#fit">How it fits</a><a href="#next">Next</a>
+    <a href="#services">Services</a><a href="#hex">The box</a><a href="#workspace">Workspace</a><a href="#agents">Agents</a><a href="#ops">Ops</a><a href="#fit">How it fits</a><a href="#work" class="nav-cta">Book a call</a>
   </nav>
 </header>
 
 <main id="main">
   <section class="hero" id="top">
     <div class="hero-copy">
-      <p class="kicker mono"><span class="pulse" aria-hidden="true"></span>nixnet // private gpu lab</p>
+      <p class="kicker mono"><span class="pulse" aria-hidden="true"></span>nixfred.cloud // private ai infrastructure</p>
       <h1><span class="glitch" data-text="NixNet">NixNet</span></h1>
-      <p class="lede">NixNet is Fred Nix's private GPU lab for a small circle of friends: browser chat and an OpenAI-compatible API over Tailscale, paired with shared NAS storage and short-lived agent sandboxes on the same homelab.</p>
-      <p class="sub">Not a product launch. A working homelab with a name, built so friends can think and build without renting someone else's GPU.</p>
-      <div class="term mono" aria-hidden="true"><span class="prompt">&gt;_</span> <span id="typed">hex: 128GB GPU box</span><span class="caret"></span></div>
+      <p class="lede">Your own AI stack, on hardware you own. NixNet is a live reference build: multi-user chat, an OpenAI-compatible API, image, voice and video generation, offline agent sandboxes and nightly backups, all on one 128GB box with no cloud in the middle.</p>
+      <p class="sub">Fred Nix designed it, runs it every day, and will build one like it for you. Not a slide deck. A working system you can ask about.</p>
+      <div class="ctas">
+        <a class="btn primary" href="https://calendly.com/nixfred">Book a call</a>
+        <a class="btn" href="https://asknix.io/">AI consulting at asknix.io</a>
+      </div>
+      <div class="term mono" aria-hidden="true"><span class="prompt">&gt;_</span> <span id="typed">hex: 128GB AI box</span><span class="caret"></span></div>
     </div>
     <div class="hero-art" aria-hidden="true">
       <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div>
@@ -65,16 +69,30 @@
     </div>
   </section>
 
-  <section class="panel reveal" id="gpu" aria-labelledby="gpu-h">
+  <section class="panel reveal" id="services" aria-labelledby="svc-h">
     <p class="num mono">01</p>
-    <h2 id="gpu-h">The GPU box and what friends get</h2>
+    <h2 id="svc-h">What Fred builds <small>every service below is running on NixNet today</small></h2>
+    <ul class="cards svc">
+      <li><h4>Private AI server</h4><p>Browser chat for your people and an API for your apps, on a machine you own. Your data stays in the building.</p><p class="proof mono">live: multi-user chat on Open WebUI 0.13.5</p></li>
+      <li><h4>Local LLM and GPU setup</h4><p>Pick models that actually fit your hardware, measure their real speed, and route each request to the right one automatically.</p><p class="proof mono">live: auto router, measured tok/s per model</p></li>
+      <li><h4>Agent sandboxes and automation</h4><p>Give AI agents their own walled-off linux boxes, revocable keys and a tool server, with a human approving anything that matters.</p><p class="proof mono">live: offline sandboxes, isolation tested nightly</p></li>
+      <li><h4>Secure private access</h4><p>Reach everything from any device over a private encrypted mesh. Sign-in rides on device identity, with zero open public ports.</p><p class="proof mono">live: Tailscale only, no public signup</p></li>
+      <li><h4>Proxmox builds and storage</h4><p>One box carved into containers and VMs, with shared ZFS storage and lab machines cloned from templates on demand.</p><p class="proof mono">live: Proxmox VE on hex, ZFS nas</p></li>
+      <li><h4>Backups and safe upgrades</h4><p>Nightly backups with an offsite copy, a snapshot before every upgrade, and a written log of every change.</p><p class="proof mono">live: Proxmox Backup Server, four copies</p></li>
+    </ul>
+  </section>
+
+  <section class="panel reveal" id="hex" aria-labelledby="hex-h">
+    <p class="num mono">02</p>
+    <h2 id="hex-h">The reference box</h2>
     <div class="split">
       <div>
-        <p>NixNet runs on Fred's Proxmox host, hex: a Minisforum MS-S1 MAX powered by an AMD Ryzen AI MAX+ 395 (16 cores / 32 threads), 128 GB of unified memory (about 123 GiB usable), a Radeon 8060S iGPU (80 GiB GPU memory limit), and an integrated NPU.</p>
-        <p>Friends already on Fred's Tailscale mesh open a browser chat (Open WebUI 0.13.3) or point any OpenAI-compatible client at the API.</p>
+        <p>Everything on this page runs on hex, a Minisforum MS-S1 MAX running Proxmox VE: an AMD Ryzen AI MAX+ 395 (16 cores / 32 threads), 128 GB of unified memory (about 123 GiB usable), a Radeon 8060S iGPU that can address up to 80 GiB of it, and an integrated NPU.</p>
+        <p>One quiet desktop-sized machine serves big local models, image and video generation, storage and agent sandboxes. No rented GPUs, no per-token bills, no third party reading the prompts.</p>
       </div>
       <dl class="specs mono" aria-label="hex at a glance">
         <div><dt>host</dt><dd>hex</dd></div>
+        <div><dt>hypervisor</dt><dd>Proxmox VE</dd></div>
         <div><dt>cpu</dt><dd>Ryzen AI MAX+ 395</dd></div>
         <div><dt>threads</dt><dd>16c / 32t</dd></div>
         <div><dt>memory</dt><dd><span class="big">128</span> GB unified</dd></div>
@@ -84,51 +102,81 @@
         <div class="bar"><span class="fill"></span></div>
       </dl>
     </div>
-    <h3>What friends get once invited:</h3>
-    <ul class="cards">
-      <li><h4>Browser chat</h4><p>Browser chat with presets (<code>chat</code>, <code>code</code>, <code>see</code>, <code>facts</code>, <code>glm-4.7-flash</code>, <code>NixNet AI</code>) and personas (<code>researcher</code>, <code>artist</code>, <code>coder</code>, <code>vision</code>, <code>nixnet-help</code>).</p></li>
-      <li><h4>Local inference</h4><p>Local inference via Ollama (0.40.16), keeping one model resident at a time across reasoning, coding, vision, and fast helper models (such as <code>gpt-oss:120b</code>, <code>qwen3-coder:30b</code>, <code>qwen3.6:35b</code>, <code>gemma4</code>, <code>qwen3-vl</code>, and more).</p></li>
-      <li><h4>Images, media, search</h4><p>Image and media generation (ComfyUI 0.43.0 with FLUX.1 schnell, LTX-Video, ACE-Step 1.5, plus MOSS-Image) and web search from the Integrations menu.</p></li>
-      <li><h4>Your own API key</h4><p>A personal API key and OpenAI-compatible base URL, plus a live status line and light usage leaderboard on the friends welcome page.</p></li>
-    </ul>
-    <p class="callout mono"><span>!</span> Access stays strictly on the tailnet. There is no public signup, and the friends welcome site stays tailnet-only.</p>
   </section>
 
-  <section class="panel reveal" id="nas" aria-labelledby="nas-h">
-    <p class="num mono">02</p>
-    <h2 id="nas-h">The nas</h2>
-    <div class="split">
-      <p>Beside the GPU share, hex runs a dedicated nas guest. Its ZFS pool <code>tank</code> holds shared Projects, Sessions, and scratch space and is actively shared over NFS (and SMB) to hex and Fred's desktops.</p>
-      <div class="pool mono" aria-hidden="true">
-        <div class="pool-h">zfs://tank</div>
-        <div class="pool-row"><span>Projects</span><i></i></div>
-        <div class="pool-row"><span>Sessions</span><i></i></div>
-        <div class="pool-row"><span>scratch</span><i></i></div>
-        <div class="pool-f">NFS + SMB</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="panel reveal" id="sandboxes" aria-labelledby="sb-h">
+  <section class="panel reveal" id="workspace" aria-labelledby="ws-h">
     <p class="num mono">03</p>
-    <h2 id="sb-h">Agent sandboxes <small>HyperNix and short-lived linux containers</small></h2>
-    <p>On hex, a HyperNix control plane runs with isolated guest networking, alongside a spawn broker (<code>hex.sessions</code>) that spins up short-lived linux containers for agent work from prebuilt templates and reaps them automatically when a task finishes or its TTL expires. HyperNix's rule is simple: local models only propose NixOS configs, <code>nix</code> evaluation proves every proposal before Fred approves it, and agent sessions stay sandboxed away from the friends chat stack.</p>
-    <ol class="steps mono" aria-label="The HyperNix rule">
-      <li><b>propose</b><span>local models only propose NixOS configs</span></li>
-      <li><b>prove</b><span><code>nix</code> evaluation proves every proposal</span></li>
-      <li><b>approve</b><span>Fred approves it</span></li>
-      <li><b>sandbox</b><span>agent sessions stay sandboxed</span></li>
+    <h2 id="ws-h">A private AI workspace <small>what your people get in the browser</small></h2>
+    <p>Open WebUI 0.13.5, signed in through Tailscale so nobody juggles passwords. A fair round-robin queue shares the GPU, so a heavy job never locks anyone out.</p>
+    <ul class="cards">
+      <li><h4>Auto picks the model</h4><p>Auto is the default. It reads each message and sends it to the right local model for code, images, quick chat, deep reasoning or documents. Every model lists a speed measured on this machine.</p></li>
+      <li><h4>Chat with your documents</h4><p>Upload files once into a knowledge collection and ask questions. Answers cite their sources, and you can click through to the evidence beside the reply.</p></li>
+      <li><h4>Talk to it</h4><p>Hands-free voice chat. Speech to text and the spoken reply both run on the server, so it works the same on a phone.</p></li>
+      <li><h4>Images, video and music</h4><p>FLUX.1 schnell and MOSS-Image through ComfyUI 0.43.0, short clips with LTX-Video, and songs up to 2 minutes with ACE-Step 1.5. All local.</p></li>
+      <li><h4>Web search with sources</h4><p>Models search the web through a private search service on the box and cite where each claim came from.</p></li>
+      <li><h4>Code that runs</h4><p>The model writes Python and runs it for math, data and charts, on a separate little computer with no internet and no access to anything else.</p></li>
+      <li><h4>Use a remote computer from chat</h4><p>Connect a machine to chat and work with its files and command line beside the conversation. On NixNet it is shared with the owner's account only, and every other account is denied.</p></li>
+      <li><h4>Teamwork built in</h4><p>Side chats, comment threads on any reply, an inbox for mentions, and folder workspaces that keep project chats, files and notes together.</p></li>
+    </ul>
+  </section>
+
+  <section class="panel reveal" id="agents" aria-labelledby="ag-h">
+    <p class="num mono">04</p>
+    <h2 id="ag-h">Built for developers and agents</h2>
+    <p>Apps and AI agents get the same private box through standard interfaces. Point any OpenAI-style client at it by changing one URL.</p>
+    <ul class="cards">
+      <li><h4>OpenAI-compatible API</h4><p>Same shape as OpenAI, including tool calls through the Auto model, streaming or not. Each person makes their own key, so usage stays tied to the person.</p></li>
+      <li><h4>Agent keys</h4><p>A stand-in key per agent, with a label, scopes and an expiry. Revoke it in one step. The real key never leaves home.</p></li>
+      <li><h4>MCP server with 19 tools</h4><p>Agents get models, chat, images, web search, speech, usage, status, the queue, sandboxes and agent keys as tools.</p></li>
+      <li><h4>Offline sandboxes</h4><p>An agent borrows its own linux box with no internet and no access to anyone else, cleaned up automatically. Persistent workspaces keep files between sessions, with restore points to roll back to.</p></li>
+    </ul>
+    <ol class="steps mono" aria-label="Sandbox lifecycle">
+      <li><b>spawn</b><span>a fresh, private linux box</span></li>
+      <li><b>work</b><span>offline, walled off from everyone else</span></li>
+      <li><b>prove</b><span>the walls are tested every night</span></li>
+      <li><b>reap</b><span>removed when the task or timer ends</span></li>
     </ol>
     <div class="lifecycle mono" aria-hidden="true"><span>template</span><em></em><span>spawn</span><em></em><span>agent work</span><em></em><span>reap</span></div>
+    <p class="note">Beside the shared stack, the <code>hex.sessions</code> spawn broker clones throwaway linux containers for coding agents and tears them down on exit or timeout. A Mastra agent workflow on the same API picks its own read-only tools and pauses for human approval before it writes anything.</p>
+    <h3 id="lab">The Lab: plan before you buy</h3>
+    <ul class="cards">
+      <li><h4>Idea to stack</h4><p>Describe an app. Get the models, memory and speed it needs.</p></li>
+      <li><h4>Will it fit</h4><p>Memory, tokens per second and cost, predicted next to measured on real hardware.</p></li>
+      <li><h4>Find models</h4><p>Hugging Face search with a fit badge for this machine, plus a model request queue.</p></li>
+      <li><h4>Playground and live pages</h4><p>One prompt, two models, side by side. Status, Pulse, Activity and a Leaderboard show the box live, with no chat text exposed.</p></li>
+    </ul>
+  </section>
+
+  <section class="panel reveal" id="ops" aria-labelledby="ops-h">
+    <p class="num mono">05</p>
+    <h2 id="ops-h">Storage, backups and operations</h2>
+    <div class="split">
+      <div>
+        <p>A dedicated nas guest on hex keeps the ZFS pool <code>tank</code> for shared projects, sessions and scratch space, shared over NFS and SMB.</p>
+        <p>Proxmox Backup Server takes nightly, deduplicated backups and keeps four copies: the primary store, an 8TB vault, a removable grab-and-go drive and an offsite copy in the cloud. Restores are written down and tested.</p>
+        <p>Every upgrade starts with a snapshot, every change lands in a change log, and API keys and credentials live in a self-hosted Infisical secrets vault instead of on random disks. Watchdogs send mail when a backup goes stale.</p>
+      </div>
+      <div class="pool mono" aria-hidden="true">
+        <div class="pool-h">zfs://tank</div>
+        <div class="pool-row"><span>projects</span><i></i></div>
+        <div class="pool-row"><span>sessions</span><i></i></div>
+        <div class="pool-row"><span>scratch</span><i></i></div>
+        <div class="pool-f">NFS + SMB // PBS x4, one offsite</div>
+      </div>
+    </div>
+    <ul class="cards">
+      <li><h4>Lab machines on demand</h4><p>Test VMs clone from templates, including an Omarchy Server dev template, so experiments never touch production.</p></li>
+      <li><h4>Run by people and agents</h4><p>AI assistants help operate the box under Fred's rules: snapshot first, log everything, ask before anything destructive.</p></li>
+    </ul>
   </section>
 
   <section class="panel reveal" id="fit" aria-labelledby="fit-h">
-    <p class="num mono">04</p>
+    <p class="num mono">06</p>
     <h2 id="fit-h">How it fits together</h2>
-    <p>Friends reach NixNet over a private Tailscale mesh with zero open public ports. Chat, local models, and the API run on hex. The nas holds shared project and session data on <code>tank</code> over NFS. HyperNix and the <code>hex.sessions</code> spawn broker run isolated short-lived linux containers beside that stack. A self-hosted Infisical secrets vault on the same Tailscale mesh keeps API keys and credentials off random disks and out of chat.</p>
+    <p>Your people and their agents reach the stack over a private Tailscale mesh with zero open public ports. Chat, the API and MCP run on hex. The nas holds shared data on <code>tank</code>. Sandboxes and the <code>hex.sessions</code> broker run short-lived linux containers beside the stack. Secrets sit in a vault, and everything is backed up nightly with an offsite copy.</p>
     <figure class="diagram">
 <svg class="flow wide" viewBox="0 0 1235 410" role="img" aria-labelledby="flow-t-wide" xmlns="http://www.w3.org/2000/svg">
-<title id="flow-t-wide">NixNet flowchart: Friends to Tailscale mesh; mesh to NixNet chat and API and to the Infisical secrets vault; NixNet to hex, the 128GB GPU box; hex to nas / tank over NFS, the HyperNix control plane, and the hex.sessions spawn broker; HyperNix and hex.sessions both to short-lived linux agent LXCs.</title>
+<title id="flow-t-wide">NixNet reference deployment: your people and their agents to a Tailscale mesh with zero public ports; mesh to chat, API and MCP and to the Infisical secrets vault; chat to hex, the 128GB AI box; hex to the nas (ZFS tank over NFS), the nightly-tested agent sandboxes, the hex.sessions spawn broker, and nightly PBS backups with an offsite copy; sandboxes and hex.sessions both to short-lived linux agent containers.</title>
 <defs><marker id="ah-wide" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="ahead"/></marker></defs>
 <path class="edge" d="M190 182H223" marker-end="url(#ah-wide)"/>
 <path class="pulse-line" d="M190 182H223"/>
@@ -148,36 +196,41 @@
 <path class="pulse-line" d="M1010 182C1028 182 1028 237 1043 237"/>
 <path class="edge" d="M1010 292C1028 292 1028 237 1043 237" marker-end="url(#ah-wide)"/>
 <path class="pulse-line" d="M1010 292C1028 292 1028 237 1043 237"/>
+<path class="edge" d="M720 214V318" marker-end="url(#ah-wide)"/>
+<path class="pulse-line" d="M720 214V318"/>
 <g class="node pink"><rect x="20" y="150" width="170" height="64" rx="10"/>
-<text x="105.0" y="187.0" class="l1">Friends</text>
+<text x="105.0" y="178.0" class="l1">Your people</text><text x="105.0" y="197.0" class="l2">and their agents</text>
 </g>
 <g class="node cyan"><rect x="225" y="150" width="170" height="64" rx="10"/>
-<text x="310.0" y="187.0" class="l1">Tailscale mesh</text>
+<text x="310.0" y="178.0" class="l1">Tailscale mesh</text><text x="310.0" y="197.0" class="l2">zero public ports</text>
 </g>
 <g class="node mint"><rect x="430" y="150" width="170" height="64" rx="10"/>
-<text x="515.0" y="178.0" class="l1">NixNet chat</text><text x="515.0" y="197.0" class="l2">and API</text>
+<text x="515.0" y="178.0" class="l1">Chat, API</text><text x="515.0" y="197.0" class="l2">and MCP</text>
 </g>
 <g class="node pink"><rect x="430" y="320" width="170" height="64" rx="10"/>
 <text x="515.0" y="348.0" class="l1">Infisical</text><text x="515.0" y="367.0" class="l2">secrets vault</text>
 </g>
 <g class="node mint"><rect x="635" y="150" width="170" height="64" rx="10"/>
-<text x="720.0" y="178.0" class="l1">hex</text><text x="720.0" y="197.0" class="l2">128GB GPU box</text>
+<text x="720.0" y="178.0" class="l1">hex</text><text x="720.0" y="197.0" class="l2">128GB AI box</text>
 </g>
 <g class="node teal"><rect x="840" y="40" width="170" height="64" rx="10"/>
-<text x="925.0" y="68.0" class="l1">nas / tank</text><text x="925.0" y="87.0" class="l2">over NFS</text>
+<text x="925.0" y="68.0" class="l1">nas / tank</text><text x="925.0" y="87.0" class="l2">ZFS over NFS</text>
 </g>
 <g class="node violet"><rect x="840" y="150" width="170" height="64" rx="10"/>
-<text x="925.0" y="178.0" class="l1">HyperNix</text><text x="925.0" y="197.0" class="l2">control plane</text>
+<text x="925.0" y="178.0" class="l1">Sandboxes</text><text x="925.0" y="197.0" class="l2">tested nightly</text>
 </g>
 <g class="node violet"><rect x="840" y="260" width="170" height="64" rx="10"/>
 <text x="925.0" y="288.0" class="l1">hex.sessions</text><text x="925.0" y="307.0" class="l2">spawn broker</text>
 </g>
 <g class="node cyan"><rect x="1045" y="205" width="170" height="64" rx="10"/>
-<text x="1130.0" y="233.0" class="l1">Short-lived linux</text><text x="1130.0" y="252.0" class="l2">agent LXCs</text>
+<text x="1130.0" y="233.0" class="l1">Short-lived linux</text><text x="1130.0" y="252.0" class="l2">agent containers</text>
+</g>
+<g class="node teal"><rect x="635" y="320" width="170" height="64" rx="10"/>
+<text x="720.0" y="348.0" class="l1">PBS backups</text><text x="720.0" y="367.0" class="l2">nightly, offsite</text>
 </g>
 </svg>
 <svg class="flow tall" viewBox="0 0 400 655" role="img" aria-labelledby="flow-t-tall" xmlns="http://www.w3.org/2000/svg">
-<title id="flow-t-tall">NixNet flowchart: Friends to Tailscale mesh; mesh to NixNet chat and API and to the Infisical secrets vault; NixNet to hex, the 128GB GPU box; hex to nas / tank over NFS, the HyperNix control plane, and the hex.sessions spawn broker; HyperNix and hex.sessions both to short-lived linux agent LXCs.</title>
+<title id="flow-t-tall">NixNet reference deployment: your people and their agents to a Tailscale mesh with zero public ports; mesh to chat, API and MCP and to the Infisical secrets vault; chat to hex, the 128GB AI box; hex to the nas (ZFS tank over NFS), the nightly-tested agent sandboxes, the hex.sessions spawn broker, and nightly PBS backups with an offsite copy; sandboxes and hex.sessions both to short-lived linux agent containers.</title>
 <defs><marker id="ah-tall" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="ahead"/></marker></defs>
 <path class="edge" d="M200 66V108" marker-end="url(#ah-tall)"/>
 <path class="pulse-line" d="M200 66V108"/>
@@ -197,53 +250,66 @@
 <path class="pulse-line" d="M200 504V578"/>
 <path class="edge" d="M334 504C334 540 250 545 250 578" marker-end="url(#ah-tall)"/>
 <path class="pulse-line" d="M334 504C334 540 250 545 250 578"/>
+<path class="edge" d="M190 350H208" marker-end="url(#ah-tall)"/>
+<path class="pulse-line" d="M190 350H208"/>
 <g class="node pink"><rect x="110" y="10" width="180" height="56" rx="10"/>
-<text x="200.0" y="43.0" class="l1">Friends</text>
+<text x="200.0" y="34.0" class="l1">Your people</text><text x="200.0" y="53.0" class="l2">and their agents</text>
 </g>
 <g class="node cyan"><rect x="110" y="110" width="180" height="56" rx="10"/>
-<text x="200.0" y="143.0" class="l1">Tailscale mesh</text>
+<text x="200.0" y="134.0" class="l1">Tailscale mesh</text><text x="200.0" y="153.0" class="l2">zero public ports</text>
 </g>
 <g class="node mint"><rect x="10" y="210" width="180" height="60" rx="10"/>
-<text x="100.0" y="236.0" class="l1">NixNet chat</text><text x="100.0" y="255.0" class="l2">and API</text>
+<text x="100.0" y="236.0" class="l1">Chat, API</text><text x="100.0" y="255.0" class="l2">and MCP</text>
 </g>
 <g class="node pink"><rect x="210" y="210" width="180" height="60" rx="10"/>
 <text x="300.0" y="236.0" class="l1">Infisical</text><text x="300.0" y="255.0" class="l2">secrets vault</text>
 </g>
 <g class="node mint"><rect x="10" y="320" width="180" height="60" rx="10"/>
-<text x="100.0" y="346.0" class="l1">hex</text><text x="100.0" y="365.0" class="l2">128GB GPU box</text>
+<text x="100.0" y="346.0" class="l1">hex</text><text x="100.0" y="365.0" class="l2">128GB AI box</text>
 </g>
 <g class="node teal"><rect x="4" y="440" width="124" height="64" rx="10"/>
-<text x="66.0" y="468.0" class="l1">nas / tank</text><text x="66.0" y="487.0" class="l2">over NFS</text>
+<text x="66.0" y="468.0" class="l1">nas / tank</text><text x="66.0" y="487.0" class="l2">ZFS over NFS</text>
 </g>
 <g class="node violet"><rect x="138" y="440" width="124" height="64" rx="10"/>
-<text x="200.0" y="468.0" class="l1">HyperNix</text><text x="200.0" y="487.0" class="l2">control plane</text>
+<text x="200.0" y="468.0" class="l1">Sandboxes</text><text x="200.0" y="487.0" class="l2">tested nightly</text>
 </g>
 <g class="node violet"><rect x="272" y="440" width="124" height="64" rx="10"/>
 <text x="334.0" y="468.0" class="l1">hex.sessions</text><text x="334.0" y="487.0" class="l2">spawn broker</text>
 </g>
 <g class="node cyan"><rect x="110" y="580" width="180" height="64" rx="10"/>
-<text x="200.0" y="608.0" class="l1">Short-lived linux</text><text x="200.0" y="627.0" class="l2">agent LXCs</text>
+<text x="200.0" y="608.0" class="l1">Short-lived linux</text><text x="200.0" y="627.0" class="l2">agent containers</text>
+</g>
+<g class="node teal"><rect x="210" y="320" width="180" height="60" rx="10"/>
+<text x="300.0" y="346.0" class="l1">PBS backups</text><text x="300.0" y="365.0" class="l2">nightly, offsite</text>
 </g>
 </svg>
-      <figcaption class="mono">Friends &rarr; Tailscale mesh &rarr; NixNet chat and API &rarr; hex, with the nas, HyperNix, the hex.sessions broker, and short-lived linux agent LXCs behind it.</figcaption>
+      <figcaption class="mono">Your people &rarr; Tailscale mesh &rarr; chat, API and MCP &rarr; hex, with the nas, sandboxes, the hex.sessions broker, short-lived linux agent containers and PBS backups behind it.</figcaption>
     </figure>
   </section>
 
-  <section class="panel reveal" id="next" aria-labelledby="next-h">
-    <p class="num mono">05</p>
-    <h2 id="next-h">What's next</h2>
-    <ul class="next">
-      <li>Keep the friends welcome page up to date as models and tools evolve on hex.</li>
-      <li>Expand HyperNix and sandboxed agent workflows cleanly behind <code>nix</code> verification and Tailscale boundaries.</li>
-    </ul>
+  <section class="panel reveal" id="work" aria-labelledby="work-h">
+    <p class="num mono">07</p>
+    <h2 id="work-h">Get one built for you</h2>
+    <p>You work with the person who does the building. Fred brings 20+ years in enterprise tech and infrastructure, uses Omarchy every day, and is part of DHH's Omarchy Maestros program. NixNet is his proof: it runs in his lab right now, and the same pieces can be sized for your office.</p>
+    <ol class="steps work mono" aria-label="How an engagement starts">
+      <li><b>call</b><span>a free 30-minute call on what you need</span></li>
+      <li><b>plan</b><span>a written plan and a fixed price before any work</span></li>
+      <li><b>build</b><span>set up on hardware you own</span></li>
+      <li><b>hand off</b><span>docs and training for your team</span></li>
+    </ol>
+    <div class="ctas">
+      <a class="btn primary" href="https://calendly.com/nixfred">Book a call</a>
+      <a class="btn" href="https://asknix.io/">See engagements at asknix.io</a>
+    </div>
+    <p class="callout mono"><span>!</span> NixNet itself stays private: no public signup and zero open public ports. This page is the tour, not the door.</p>
   </section>
 </main>
 
 <footer class="foot">
   <img src="/brand/nixfred-icon.svg" alt="nixfred hexagon" width="44" height="44">
   <div>
-    <p class="mono">NixNet // Fred Nix's private GPU lab for friends.</p>
-    <p>Built on linux. The real service stays on the tailnet.</p>
+    <p class="mono">NixNet // private AI infrastructure by Fred Nix.</p>
+    <p>Built on linux. <a href="https://calendly.com/nixfred">Book a call</a> &middot; <a href="https://asknix.io/">asknix.io</a> &middot; <a href="https://nixfred.com/">nixfred.com</a></p>
   </div>
 </footer>
 </body>
