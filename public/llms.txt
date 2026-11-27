@@ -6,7 +6,7 @@ This site is a public showcase page plus a fixed-price offer page. NixNet itself
 
 ## Contact
 
-- [Book the free 1-hour call](https://calendly.com/nixfred/free-30-minute-private-ai-build-call): Fred's calendar, private AI build call.
+- [Book the free 1-hour call](https://calendly.com/nixfred/a-free-1-hour-call-about-your-own-private-ai-cloud): Fred's calendar, private AI build call.
 - [Fixed-price offer](https://nixfred.cloud/offer): the private AI build offer.
 - [asknix.io](https://asknix.io/): NixNet AI Consulting Services by Fred Nix, with engagement options.
 

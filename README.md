@@ -14,7 +14,7 @@
 
 # nixfred.cloud
 
-The public showcase for **NixNet**, Fred Nix's live reference build of private AI infrastructure: multi-user chat, an OpenAI-compatible API and MCP server, image, voice and video generation, offline agent sandboxes, ZFS storage and nightly backups on one 128GB box, reached only over Tailscale. It pitches the same build as a service. NixNet itself stays private; this page is the tour. Fixed-price offer at [nixfred.cloud/offer](https://nixfred.cloud/offer): $10,000 for the build of a system like the reference one; seats and models depend on the hardware the client buys (sized on the call, billed separately); nightly backups with an offsite copy at a cloud storage provider, likely Backblaze B2. CTA: [book the free 1-hour call](https://calendly.com/nixfred/free-30-minute-private-ai-build-call) or [asknix.io](https://asknix.io/).
+The public showcase for **NixNet**, Fred Nix's live reference build of private AI infrastructure: multi-user chat, an OpenAI-compatible API and MCP server, image, voice and video generation, offline agent sandboxes, ZFS storage and nightly backups on one 128GB box, reached only over Tailscale. It pitches the same build as a service. NixNet itself stays private; this page is the tour. Fixed-price offer at [nixfred.cloud/offer](https://nixfred.cloud/offer): $10,000 for the build of a system like the reference one; seats and models depend on the hardware the client buys (sized on the call, billed separately); nightly backups with an offsite copy at a cloud storage provider, likely Backblaze B2. CTA: [book the free 1-hour call](https://calendly.com/nixfred/a-free-1-hour-call-about-your-own-private-ai-cloud) or [asknix.io](https://asknix.io/).
 
 ```mermaid
 flowchart LR
